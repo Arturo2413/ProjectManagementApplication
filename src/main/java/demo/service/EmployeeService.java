@@ -1,6 +1,9 @@
 package demo.service;
 
+import demo.model.Category;
+import demo.model.Developer;
 import demo.model.Employee;
+import demo.repository.DeveloperRepository;
 import demo.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +18,10 @@ import java.util.List;
 
 @Service
 public class EmployeeService {
-    
+
+    /**
+     * Test Employees
+     */
     @Autowired
     private EmployeeRepository employeeRepository;
 
@@ -75,4 +81,6 @@ public class EmployeeService {
             System.out.println(emp1);
         }
     }
+
 }
+

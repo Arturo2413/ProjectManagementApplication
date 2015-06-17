@@ -1,5 +1,7 @@
 package demo;
 
+import demo.model.Developer;
+import demo.service.DeveloperService;
 import demo.service.EmployeeService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,7 +14,9 @@ public class ProjectManagementApplication {
         ConfigurableApplicationContext context = SpringApplication.run(ProjectManagementApplication.class, args);
 
         EmployeeService employeeService = context.getBean(EmployeeService.class);
+        DeveloperService developerService = context.getBean(DeveloperService.class);
 
         employeeService.testEmployees();
+        developerService.testDevelopers();
     }
 }

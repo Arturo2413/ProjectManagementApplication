@@ -7,11 +7,15 @@ import java.util.Date;
  * Created by poo2 on 15/06/2015.
  */
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
     private Long id;
+
+    @Column
     private String name;
     private String surname;
     private Double salary;
