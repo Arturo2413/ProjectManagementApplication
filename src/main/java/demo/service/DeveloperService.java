@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by poo2 on 17/06/2015.
@@ -49,5 +50,22 @@ public class DeveloperService {
         developer3.setDateIncorporation(new Date());
 
         developerRepository.save(developer3);
+
+        Developer developer4 = new Developer();
+        developer4.setName("Junior");
+        developer4.setSurname("El Kabouri");
+        developer4.setSalary(200.0);
+        developer4.setCategory(Category.JUNIOR);
+        developer4.setDateIncorporation(new Date());
+
+        developerRepository.save(developer4);
+
+        List<Developer> junior = developerRepository.findByCategory(Category.JUNIOR);
+
+        System.out.println("############## Filtro Developers #############");
+        for(Developer dev : junior){
+
+            System.out.println(dev);
+        }
     }
 }

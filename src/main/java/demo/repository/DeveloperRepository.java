@@ -1,5 +1,6 @@
 package demo.repository;
 
+import demo.model.Category;
 import demo.model.Developer;
 import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.data.repository.query.Param;
@@ -12,6 +13,6 @@ import java.util.List;
  */
 public interface DeveloperRepository extends PagingAndSortingRepository<Developer,Long> {
 
-    public List<Developer> findBySurname(@Param("surname")String surname);
-    public List<Developer> findByDateIncorporationBetween(@Param("start") Date start,@Param("end") Date end );
+    public List<Developer> findByCategory(@Param("category")Enum category);
+
 }
