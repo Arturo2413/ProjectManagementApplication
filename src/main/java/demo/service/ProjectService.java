@@ -1,7 +1,10 @@
 package demo.service;
 
+import demo.model.Category;
+import demo.model.Developer;
 import demo.model.Manager;
 import demo.model.Project;
+import demo.repository.DeveloperRepository;
 import demo.repository.ManagerRepository;
 import demo.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +25,8 @@ public class ProjectService {
     ManagerRepository managerRepository;
     @Autowired
     ProjectRepository projectRepository;
+    @Autowired
+    DeveloperRepository developerRepository;
 
     public void testProject(){
 
@@ -41,7 +46,13 @@ public class ProjectService {
         Manager manager =  managerRepository.findBySurname("Boss").get(0);
         project.setManager(manager);
 
-
         projectRepository.save(project);
+
+
+        Project p = projectRepository.findById(1L).get(0);
+        Developer d = developerRepository.findByCategory(Category.JUNIOR).get(0);
+
+        p.getDevelopers().add(d);
+        d.getProjects().add(p);
     }
 }

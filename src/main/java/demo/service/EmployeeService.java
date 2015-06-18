@@ -84,11 +84,7 @@ public class EmployeeService {
             System.out.println(emp1);
         }
 
-        Project p = new Project();
-        Developer d = new Developer();
 
-        p.getDevelopers().add(d);
-        d.getProjects().add(p);
     }
 
 }
