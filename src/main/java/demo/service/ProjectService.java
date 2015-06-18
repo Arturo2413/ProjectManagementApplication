@@ -25,14 +25,6 @@ public class ProjectService {
 
     public void testProject(){
 
-        Manager manager1 = new Manager();
-        manager1.setName("Boss");
-        manager1.setSurname("The");
-        manager1.setSalary(12000000.0);
-        manager1.setBonusSuccess(123.0);
-        manager1.setDateIncorporation(new Date());
-
-        managerRepository.save(manager1);
 
         Calendar calendar = Calendar.getInstance();
         calendar.set(2015, Calendar.JANUARY, 1);
@@ -46,9 +38,9 @@ public class ProjectService {
         Date endDate = calendar.getTime();
         project.setEndDate(endDate);
 
-        projectRepository.save(project);
+        Manager manager =  managerRepository.findBySurname("Boss").get(0);
+        project.setManager(manager);
 
-        project.setManager(manager1);
 
         projectRepository.save(project);
     }

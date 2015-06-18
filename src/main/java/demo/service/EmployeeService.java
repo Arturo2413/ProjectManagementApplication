@@ -3,6 +3,7 @@ package demo.service;
 import demo.model.Category;
 import demo.model.Developer;
 import demo.model.Employee;
+import demo.model.Project;
 import demo.repository.DeveloperRepository;
 import demo.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -82,6 +83,12 @@ public class EmployeeService {
         for(Employee emp1 : employees){
             System.out.println(emp1);
         }
+
+        Project p = new Project();
+        Developer d = new Developer();
+
+        p.getDevelopers().add(d);
+        d.getProjects().add(p);
     }
 
 }

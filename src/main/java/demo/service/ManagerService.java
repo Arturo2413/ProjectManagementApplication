@@ -20,8 +20,8 @@ public class ManagerService {
     public void testManagers(){
 
         Manager manager1 = new Manager();
-        manager1.setName("Boss");
-        manager1.setSurname("The");
+        manager1.setName("The");
+        manager1.setSurname("Boss");
         manager1.setSalary(12000000.0);
         manager1.setBonusSuccess(123.0);
         manager1.setDateIncorporation(new Date());
