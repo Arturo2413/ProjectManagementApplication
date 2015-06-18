@@ -20,6 +20,7 @@ public class ProjectService {
 
     @Autowired
     ManagerRepository managerRepository;
+    @Autowired
     ProjectRepository projectRepository;
 
     public void testProject(){
@@ -44,6 +45,8 @@ public class ProjectService {
         calendar.set(2015, Calendar.SEPTEMBER, 1);
         Date endDate = calendar.getTime();
         project.setEndDate(endDate);
+
+        projectRepository.save(project);
 
         project.setManager(manager1);
 
