@@ -2,7 +2,9 @@ package demo.service;
 
 import demo.model.Category;
 import demo.model.Developer;
+import demo.model.Project;
 import demo.repository.DeveloperRepository;
+import demo.repository.ProjectRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -21,9 +23,13 @@ public class DeveloperService {
      */
     @Autowired
     DeveloperRepository developerRepository;
+    @Autowired
+    ProjectRepository projectRepository;
 
     public void testDevelopers(){
 
+
+        //Damos de alta a varios developers
         Developer developer1 = new Developer();
         developer1.setName("Arturo");
         developer1.setSurname("Garcia");
@@ -60,6 +66,8 @@ public class DeveloperService {
 
         developerRepository.save(developer4);
 
+
+//Hacemos una busqueda por categoria, guardando el resultado en una lista
         List<Developer> junior = developerRepository.findByCategory(Category.JUNIOR);
 
         System.out.println("############## Filtro Developers #############");
@@ -67,5 +75,6 @@ public class DeveloperService {
 
             System.out.println(dev);
         }
+
     }
 }

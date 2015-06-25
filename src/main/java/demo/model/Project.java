@@ -36,6 +36,9 @@ public class Project {
     @ManyToMany
     private Set<Developer> developers = new HashSet<>();
 
+    @ManyToMany(mappedBy = "projects")
+    private Set<Specialty> specialties = new HashSet<>();
+
     public Project() {
     }
 
@@ -85,5 +88,13 @@ public class Project {
 
     public void setDevelopers(Set<Developer> developers) {
         this.developers = developers;
+    }
+
+    public Set<Specialty> getSpecialties() {
+        return specialties;
+    }
+
+    public void setSpecialties(Set<Specialty> specialties) {
+        this.specialties = specialties;
     }
 }
