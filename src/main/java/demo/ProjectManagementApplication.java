@@ -26,8 +26,8 @@ public class ProjectManagementApplication {
         employeeService.testEmployees();
         developerService.testDevelopers();
         managerService.testManagers();
-        specialtyService.testSpecialty();
         projectService.testProject();
+        specialtyService.testSpecialty();
         reviewServices.testReview();
 
 
