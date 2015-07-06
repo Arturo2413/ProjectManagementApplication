@@ -28,6 +28,9 @@ public class Specialty {
     @ManyToMany
     private Set<Project> projects = new HashSet<>();
 
+    @OneToMany(mappedBy = "specialty")
+    private Set<Review> reviews = new HashSet<>();
+
     public Specialty() {
     }
 
@@ -71,5 +74,13 @@ public class Specialty {
 
     public void setProjects(Set<Project> projects) {
         this.projects = projects;
+    }
+
+    public Set<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(Set<Review> reviews) {
+        this.reviews = reviews;
     }
 }

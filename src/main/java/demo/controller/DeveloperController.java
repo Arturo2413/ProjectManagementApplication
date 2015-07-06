@@ -11,15 +11,13 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import static org.springframework.web.bind.annotation.RequestMethod.DELETE;
-import static org.springframework.web.bind.annotation.RequestMethod.GET;
-import static org.springframework.web.bind.annotation.RequestMethod.POST;
+import static org.springframework.web.bind.annotation.RequestMethod.*;
 
 /**
  * Created by poo2 on 29/06/2015.
  */
 @RestController
-@RequestMapping("/developer")
+@RequestMapping("/developers")
 public class DeveloperController {
 
     @Autowired
@@ -64,6 +62,19 @@ public class DeveloperController {
             throw new DeveloperException(id);
 
         developerRepository.delete(id);
+
+    }
+//Guardar un Developer
+    @RequestMapping(value = "/{id}", method = PUT)
+    public Developer updateById(@PathVariable Long id, @RequestBody Developer newDeveloper){
+        Developer developer = developerRepository.findOne(id);
+
+        if(developer == null)
+            throw new DeveloperException(id);
+
+        newDeveloper = developerRepository.save(newDeveloper);
+
+        return newDeveloper;
 
     }
 }

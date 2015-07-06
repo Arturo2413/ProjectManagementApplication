@@ -47,7 +47,7 @@ public class ProjectService {
         project.setManager(manager);
 
         //Aqui buscamos un developer en concreto y lo vinculamos para la tabla project_developers_specialties
-        Developer d = developerRepository.findByCategory(Category.JUNIOR).get(0);
+        Developer d = developerRepository.findByCategory(Category.JUNIOR).get(1);
         project.getDevelopers().add(d);
 
 

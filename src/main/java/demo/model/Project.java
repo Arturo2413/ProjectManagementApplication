@@ -39,6 +39,9 @@ public class Project {
     @ManyToMany(mappedBy = "projects")
     private Set<Specialty> specialties = new HashSet<>();
 
+    @OneToMany(mappedBy = "project")
+    private Set<Review> reviews = new HashSet<>();
+
     public Project() {
     }
 

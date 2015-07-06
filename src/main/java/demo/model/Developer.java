@@ -27,6 +27,10 @@ public class Developer extends Employee {
     @ManyToMany
     private Set<Specialty> specialties = new HashSet<>();
 
+    @OneToMany(mappedBy = "developer")
+    private Set<Review> reviews = new HashSet<>();
+
+
     public Developer() {
     }
 
@@ -40,10 +44,11 @@ public class Developer extends Employee {
 
     @Override
     public String toString() {
-
-        String developer = super.toString();
-        return developer + "Developer{" +
+        return "Developer{" +
                 "category=" + category +
+                ", projects=" + projects +
+                ", specialties=" + specialties +
+                ", reviews=" + reviews +
                 '}';
     }
 
@@ -61,6 +66,14 @@ public class Developer extends Employee {
 
     public void setSpecialties(Set<Specialty> specialties) {
         this.specialties = specialties;
+    }
+
+    public Set<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(Set<Review> reviews) {
+        this.reviews = reviews;
     }
 }
 
